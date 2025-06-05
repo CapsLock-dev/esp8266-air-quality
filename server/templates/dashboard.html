@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favico.png') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Air Quality Monitoring</h1>
+        
+        <div class="controls">
+            <select id="timeRange">
+                <option value="1">Last 1 hour</option>
+                <option value="24" selected>Last 24 hours</option>
+                <option value="48">Last 48 days</option>
+            </select>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Temperature</h3>
+                <div id="current-temp">-- °C</div>
+            </div>
+            <div class="stat-card">
+                <h3>Humidity</h3>
+                <div id="current-hum">-- %</div>
+            </div>
+            <div class="stat-card">
+                <h3>CO2</h3>
+                <div id="current-eco2">-- ppm</div>
+            </div>
+            <div class="stat-card">
+                <h3>TVOC</h3>
+                <div id="current-tvoc">-- ppb</div>
+            </div>
+            <div class="stat-card">
+                <h3>Air Quality Index</h3>
+                <div id="current-aqi">--</div>
+            </div>
+        </div>
+        
+		<div class="charts-panel">
+            <div class="chart-container">
+                <canvas id="tempChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="humChart"></canvas>
+            </div>
+        </div>
+
+		<div class="charts-panel">
+            <div class="chart-container">
+                <canvas id="eco2Chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="tvocChart"></canvas>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='charts.js') }}"></script>
+</body>
+</html>

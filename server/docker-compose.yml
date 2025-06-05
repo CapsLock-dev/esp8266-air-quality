@@ -1,0 +1,11 @@
+services:
+  air-quality-server:
+    image: air-quality-server:latest
+    environment:
+      - MQTT_BROKER_IP=192.168.0.246
+      - MQTT_BROKER_PORT=1883
+      - HTTP_SERVER_PORT=8989
+    ports:
+      - "8989:8989"
+    volumes:
+      - ./db:/server/db
